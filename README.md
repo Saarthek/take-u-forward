@@ -8,6 +8,12 @@ The solutions are organized by topic matching the progression of the DSA sheet:
 
 dp/ — Dynamic Programming problems and implementations (including Recursion foundations).
 
+Note: 
+- Every file has a solution to a single problem with the problem link in the comments.
+- The number in the beginning of a name denotes the sequence.
+- Every file solves a single problem, taking input from Standard input and output to standard output.
+- Every code file has approaches from basic to optimal. A single approach will be in a single multi-line comment ordered by efficiency from least to most.
+
 ## Getting Started
 
 ### Prerequisites 
