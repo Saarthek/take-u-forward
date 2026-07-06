@@ -13,6 +13,7 @@ Note:
 - The number in the beginning of a name denotes the sequence.
 - Every file solves a single problem, taking input from Standard input and output to standard output.
 - Every code file has approaches from basic to optimal. A single approach will be in a single multi-line comment ordered by efficiency from least to most.
+- Every approach respects the leet code function signature. You can copy the entire solution class into the leet code window, you won't face issues.
 
 ## Getting Started
 
