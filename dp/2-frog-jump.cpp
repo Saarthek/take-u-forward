@@ -32,7 +32,7 @@ class Solution {
    //Space Complexity -> Linear (Recursion stack)
    */
    //Memoization
-   /*private:
+   private:
     int auxMinCost(vector<int> &height, vector<int> &dp, int st, int end){
         if(dp[st]!=-1){
             return dp[st];
@@ -51,13 +51,12 @@ class Solution {
     int minCost(vector<int>& height) {
         // Code here
         int n = height.size();
-        vector<int> dp(n+1, -1);
+        vector<int> dp(n, -1);
         int ans = auxMinCost(height, dp, 0, n-1);
         return ans;
     }
     //Time Complexity -> O(n)
     //Space Complexity -> O(n) Recursion Stack + 1D DP
-    */
 };
 
 int main(){
