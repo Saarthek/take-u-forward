@@ -24,7 +24,7 @@ public:
     //Space Complexity -> O(n) (Recursion Stack)    
     */
    //Memoization
-    int climbStairs(int n) {
+    /*int climbStairs(int n) {
         vector <int> dp(n+1, -1);
         int ans = memoizedClimbStairs(n, dp);
         return ans;
@@ -40,6 +40,34 @@ public:
     }
     //Time Complexity -> O(n)
     //Space Complexity -> O(n) 1D DP array and Recursion Stack
+    */
+   //Tabulation
+   /*int climbStairs(int n) {
+        vector <int> dp(n+1, -1);
+        dp[0]=1;
+        dp[1] = 1;
+        for(int i = 2; i <= n; i++){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp[n];
+    }
+    //Time Complexity -> O(n)
+    //Space Complexity -> O(n) 1D DP array
+    */
+   //Space Optimized
+   int climbStairs(int n) {
+        vector <int> dp(n+1, -1);
+        int curr = 1;
+        int prev = curr;
+        for(int i = 2; i <= n; i++){
+            int temp = prev;
+            prev = curr;
+            curr = temp+prev;
+        }
+        return curr;
+    }
+   //Time Complexity -> O(n)
+    //Space Complexity -> O(1)
 };
 
 int main(){
