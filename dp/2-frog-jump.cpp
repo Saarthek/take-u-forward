@@ -32,7 +32,7 @@ class Solution {
    //Space Complexity -> Linear (Recursion stack)
    */
    //Memoization
-   private:
+   /*private:
     int auxMinCost(vector<int> &height, vector<int> &dp, int st, int end){
         if(dp[st]!=-1){
             return dp[st];
@@ -57,6 +57,48 @@ class Solution {
     }
     //Time Complexity -> O(n)
     //Space Complexity -> O(n) Recursion Stack + 1D DP
+    */
+   //Tabulation
+   /*public:
+   int minCost(vector<int>& height) {
+        // Code here
+        int n = height.size();
+        vector<int> dp(n, -1);
+        dp[n-1] = 0;
+        for(int i = n-2; i >= 0; i--){
+            dp[i] = abs(height[i+1]-height[i]) + dp[i+1];
+            if(i<n-2){
+                dp[i] = min(dp[i], (abs(height[i+2]-height[i]) + dp[i+2]));
+            }
+        }
+        return dp[0];
+    }
+    //Time Complexity -> O(n)
+    //Space Complexity -> O(n) 1D DP
+    */
+   //Space Optimized
+   public:
+    int minCost(vector<int>& height) {
+        // Code here
+        int n = height.size();
+        //vector<int> dp(n, -1);
+        int nxt1 = 0;
+        int nxt2 = 0;
+        int curr = 0;
+        for(int i = n-2; i >= 0; i--){
+            //dp[i] = abs(height[i+1]-height[i]) + dp[i+1];
+            curr = abs(height[i+1]-height[i]) + nxt1;
+            if(i<n-2){
+                //dp[i] = min(dp[i], (abs(height[i+2]-height[i]) + dp[i+2]));
+                curr = min(curr, abs(height[i+2]-height[i]) + nxt2);
+            }
+            nxt2 = nxt1;
+            nxt1 = curr;
+        }
+        return curr;
+    }
+    //Time Complexity -> O(n)
+    //Space Complexity -> O(1)
 };
 
 int main(){
