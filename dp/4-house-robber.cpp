@@ -1,3 +1,8 @@
+/*
+This code is a solution of the problem House Robber from Leetcode at the link
+https://leetcode.com/problems/house-robber
+The solution progresses from brute force to optimal
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -21,7 +26,7 @@ public:
     //Space Complexity -> Linear (Stack Space)    
     */
    /*
-   Memooization
+   //Memoization
    int rob(vector<int>& nums) {
         int n = nums.size();
         vector<int> dp(n, -1);
