@@ -10,106 +10,87 @@ using namespace std;
 
 class Solution {
     //Recursion
-  /*public:
-    int minCost(vector<int>& height) {
+  public:
+    /*int minCost(int k, vector<int>& height) {
         // Code here
         int n = height.size();
-        int ans = auxMinCost(height, 0, n-1);
+        int ans = auxMinCost(height, 0, n-1, k);
         return ans;
     }
-    int auxMinCost(vector<int> &height, int st, int end){
+    int auxMinCost(vector<int> &height, int st, int end, int k){
         if(st>=end){
             return 0;
         }
-        int j1 = abs(height[st+1]-height[st]) + auxMinCost(height, st+1, end);
-        int j2 = INT_MAX;
-        if(st<end-1){
-            j2 = abs(height[st+2]-height[st]) + auxMinCost(height, st+2, end);
+        int ans = INT_MAX;
+        for(int i = 1; i <= k; i++){
+            if(st+i>end){
+                break;
+            }
+            int curr = abs(height[st+i]-height[st]) + auxMinCost(height, st+i, end, k);
+            ans = min(ans, curr);
         }
-        return min(j1, j2);
-    }
+        return ans;
+    }*/
    //Time Complexity -> Exponential
    //Space Complexity -> Linear (Recursion stack)
-   */
    //Memoization
    /*private:
-    int auxMinCost(vector<int> &height, vector<int> &dp, int st, int end){
+    int auxMinCost(vector<int> &height, vector<int> &dp, int st, int end, int k){
         if(dp[st]!=-1){
             return dp[st];
         }
         if(st>=end){
             return dp[st]=0;
         }
-        int j1 = abs(height[st+1]-height[st]) + auxMinCost(height, dp, st+1, end);
-        int j2 = INT_MAX;
-        if(st<end-1){
-            j2 = abs(height[st+2]-height[st]) + auxMinCost(height, dp, st+2, end);
+        int ans = INT_MAX;
+        for(int i = 1; i <= k; i++){
+            if(st+i > end){
+                break;
+            }
+            int curr = abs(height[st+i]-height[st]) + auxMinCost(height, dp, st+i, end, k);
+            ans = min(curr, ans);
         }
-        return dp[st]=min(j1, j2);
+        return dp[st]=ans;
     }
   public:
-    int minCost(vector<int>& height) {
+    int minCost(int k, vector<int>& height) {
         // Code here
         int n = height.size();
         vector<int> dp(n, -1);
-        int ans = auxMinCost(height, dp, 0, n-1);
+        int ans = auxMinCost(height, dp, 0, n-1, k);
         return ans;
     }
     //Time Complexity -> O(n)
     //Space Complexity -> O(n) Recursion Stack + 1D DP
     */
    //Tabulation
-   /*public:
-   int minCost(vector<int>& height) {
+   public:
+   int minCost(int k, vector<int>& height) {
         // Code here
         int n = height.size();
-        vector<int> dp(n, -1);
+        vector<int> dp(n, INT_MAX);
         dp[n-1] = 0;
         for(int i = n-2; i >= 0; i--){
-            dp[i] = abs(height[i+1]-height[i]) + dp[i+1];
-            if(i<n-2){
-                dp[i] = min(dp[i], (abs(height[i+2]-height[i]) + dp[i+2]));
+            for(int j = 1; j <= k && i+j<n; j++){
+                dp[i] = min(dp[i], (abs(height[i+j]-height[i]) + dp[i+j]));
             }
         }
         return dp[0];
     }
     //Time Complexity -> O(n)
     //Space Complexity -> O(n) 1D DP
-    */
-   //Space Optimized
-   public:
-    int minCost(vector<int>& height) {
-        // Code here
-        int n = height.size();
-        //vector<int> dp(n, -1);
-        int nxt1 = 0;
-        int nxt2 = 0;
-        int curr = 0;
-        for(int i = n-2; i >= 0; i--){
-            //dp[i] = abs(height[i+1]-height[i]) + dp[i+1];
-            curr = abs(height[i+1]-height[i]) + nxt1;
-            if(i<n-2){
-                //dp[i] = min(dp[i], (abs(height[i+2]-height[i]) + dp[i+2]));
-                curr = min(curr, abs(height[i+2]-height[i]) + nxt2);
-            }
-            nxt2 = nxt1;
-            nxt1 = curr;
-        }
-        return curr;
-    }
-    //Time Complexity -> O(n)
-    //Space Complexity -> O(1)
 };
 
 int main(){
     Solution sol;
     int n;
-    cin >> n;
+    int k;
+    cin >> n >> k;
     vector<int> heights(n);
     for(int i = 0; i < n; i++){
         cin >> heights[i];
     }
-    int ans = sol.minCost(heights);
+    int ans = sol.minCost(k, heights);
     cout << ans;
     return 0;
 }
