@@ -60,7 +60,7 @@ class Solution {
         int ans = auxMinCost(height, dp, 0, n-1, k);
         return ans;
     }
-    //Time Complexity -> O(n)
+    //Time Complexity -> O(n*k)
     //Space Complexity -> O(n) Recursion Stack + 1D DP
     */
    //Tabulation
@@ -77,7 +77,7 @@ class Solution {
         }
         return dp[0];
     }
-    //Time Complexity -> O(n)
+    //Time Complexity -> O(n*k)
     //Space Complexity -> O(n) 1D DP
 };
 
