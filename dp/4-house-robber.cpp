@@ -82,10 +82,14 @@ public:
 };
 
 int main(){
+    Solution sol;
     int n;
     cin >> n;
     vector<int> nums(n);
     for(int i = 0; i < n; i++){
         cin >> nums[i];
     }
+    int ans = sol.rob(nums);
+    cout << ans;
+    return 0;
 }
