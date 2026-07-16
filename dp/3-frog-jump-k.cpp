@@ -1,6 +1,6 @@
 /*
-This code is a solution of the problem Frog Jump with K distance from Geeks for Geeks at the link
-https://www.geeksforgeeks.org/problems/geek-jump/1
+This code is a solution of the problem Frog Jump with K distance from atCoder at the link
+https://atcoder.jp/contests/dp/tasks/dp_b
 The solution progresses from brute force to optimal
 */
 
