@@ -27,13 +27,22 @@ public:
     //Space Complexity -> Linear (Stack Space)    
     */
    /*
-   Memooization
+   //Memoization
+  public:
    int rob(vector<int>& nums) {
         int n = nums.size();
+        if(n==1){
+            return nums[0];
+        }
         vector<int> dp(n, -1);
-        int ans = recRob(nums, dp, 0, n-1);
-        return ans;
+        int ans1 = recRob(nums, dp, 0, n-2);
+        for(int i = 0; i < n; i++){
+            dp[i] = -1;
+        }
+        int ans2 = recRob(nums, dp, 1, n-1);
+        return max(ans1, ans2);
     }
+  private:
     int recRob(vector<int>& nums, vector<int> &dp, int st, int end){
         if(st>end){
             return 0;
@@ -52,13 +61,19 @@ public:
   public:
     int rob(vector<int>& nums) {
         int n = nums.size();
+        if(n==1){
+            return nums[0];
+        }
         vector<int> dp(n+2, 0);
-        int ans = dpRob(nums, dp);
-        return ans;
+        int ans1 = dpRob(nums, dp, 0, n-2);
+        for(int i = 0; i <= n+1; i++){
+            dp[i] = 0;
+        }
+        int ans2 = dpRob(nums, dp, 1, n-1);
+        return max(ans1, ans2);
     }
-    int dpRob(vector<int>& nums, vector<int> &dp){
-        int end = nums.size()-1;
-        int st = 0;
+  private:
+    int dpRob(vector<int>& nums, vector<int> &dp, int st, int end){
         dp[end+1] = 0;
         dp[end+2] = 0;
         for(int i = end; i >= st; i--){
@@ -70,9 +85,8 @@ public:
     //Space Complexity -> O(n) 
   */
     //Space Optimization
-    int rob(vector<int>& nums){
-        int end = nums.size()-1;
-        int st = 0;
+  private:
+    int auxRob(vector<int>& nums, int st, int end){
         int nxt1 = 0;
         int nxt2 = 0;
         int temp;
@@ -82,6 +96,16 @@ public:
             nxt1 = temp;
         }
         return temp;
+    }
+  public:
+    int rob(vector<int> &nums){
+        int n = nums.size();
+        if(n==1){
+            return nums[0];
+        }
+        int ans1 = auxRob(nums, 0, n-2);
+        int ans2 = auxRob(nums, 1, n-1);
+        return max(ans1, ans2);
     }
     //Time Complexity -> O(N)
     //Space Complexity -> O(1)
