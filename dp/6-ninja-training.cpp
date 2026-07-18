@@ -72,6 +72,7 @@ public:
     //Time Complexity -> O(n*NUM_ACT)
     //Space Complexity -> O(n*NUM_ACT) (DP array + Auxiliary Stack Space)
 */
+/*
 //Tabulation
 public:
     int maximumPoints(vector<vector<int>>& mat) {
@@ -97,6 +98,33 @@ public:
     }
     //Time Complexity -> O(NUM_ACT * n)
     //Space Complexity -> O(NUM_ACT * n)
+*/
+//Space Optimized
+public:
+    int maximumPoints(vector<vector<int>>& mat) {
+        int n = mat.size();
+        vector<vector<int>> dp(n+1, vector<int> (NUM_ACT, 0));
+        vector<int> next(NUM_ACT, 0);
+        vector<int> curr(NUM_ACT, 0);
+        for(int i = n-1; i >= 0; i--){
+            for(int j = 0; j < NUM_ACT; j++){
+                int ans = -1;
+                for (int k = 0; k < NUM_ACT; k++){
+                    if(j!=k){
+                        int tmp = mat[i][j]+next[k];
+                        ans = max(ans, tmp);
+                    }
+                }
+                curr[j] = ans;
+            }
+            next = curr;
+        }
+        int ans = -1;
+        for(int i = 0; i < NUM_ACT; i++){
+            ans = max(curr[i], ans);
+        }
+        return ans;
+    }
 };
 
 int main(){
