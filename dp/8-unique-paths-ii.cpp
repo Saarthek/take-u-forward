@@ -33,6 +33,7 @@ public:
 //Space Complexity -> O(m*n)
 */
 //Memoization
+/*
 private:
     int reqUniquePath(vector<vector<int>>& obs, int i, int j, vector<vector<int>>& dp, int m, int n){
         if(dp[i][j]!=-1){
@@ -56,6 +57,31 @@ public:
     }
 //Time Complexity -> O(m*n)
 //Space Complexity -> O(m*n) (DP Array + Auxiliary Stack Space)
+*/
+//Space Optimized
+public:
+    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        int m = obstacleGrid.size();
+        int n = obstacleGrid[0].size();
+        vector<long long> next(n+1, 0);
+        vector<long long> curr(n+1, 0);
+        next[n-1] = 1-obstacleGrid[m-1][n-1];
+        curr[n-1] = 1-obstacleGrid[m-1][n-1];
+        for(int i = m-1; i >= 0; i--){
+            for(int j = n-1; j >= 0; j--){
+                if(!obstacleGrid[i][j]){
+                    curr[j] = (next[j] %MODVAL + curr[j+1] % MODVAL)%MODVAL;
+                }
+                else{
+                    curr[j] = 0;
+                }
+            }
+            next = curr;
+        }
+        return curr[0];
+    }
+//Time Complexity -> O(m*n)
+//Space Complexity -> O(n) (next and curr arrays)
 };
 
 int main(){
