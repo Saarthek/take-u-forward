@@ -8,6 +8,8 @@ The solution progresses from brute force to optimal
 
 using namespace std;
 
+#define MODVAL (int)(2e+9)
+
 class Solution {
 /*
     //Recursion
@@ -19,7 +21,7 @@ private:
         if(i==m&&j==n){
             return 1;
         }
-        return reqUniquePath(obs, i+1, j, m, n) + reqUniquePath(obs, i, j+1, m, n);
+        return (reqUniquePath(obs, i+1, j, m, n)%MODVAL + reqUniquePath(obs, i, j+1, m, n)%MODVAL)%MODVAL;
     }
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
@@ -42,7 +44,7 @@ private:
         if(i==m&&j==n){
             return dp[i][j]=1;
         }
-        return  dp[i][j] = (reqUniquePath(obs, i+1, j, dp, m, n) + reqUniquePath(obs, i, j+1, dp, m, n));
+        return  dp[i][j] = (reqUniquePath(obs, i+1, j, dp, m, n) % MODVAL  + reqUniquePath(obs, i, j+1, dp, m, n) % MODVAL) % MODVAL;
     }
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
