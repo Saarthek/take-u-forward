@@ -83,6 +83,7 @@ public:
 //Time Complexity -> O(m*n)
 //Space Complexity -> O(m*n) (Auxiliary Stack space + DP Array)
 */
+/*
 //Tabulation
 private:
     int recMinPathSum(int i, int j, int m, int n, vector<vector<int>>& grid, vector<vector<int>>& dp){
@@ -115,6 +116,47 @@ public:
     }
 //Time Complexity -> O(m*n)
 //Space Complexity -> O(m*n) (DP Array)
+*/
+private:
+    int auxMinPathSum(int m, int n, vector<vector<int>>& grid){
+        vector<int> next(n+2, -1);
+        vector<int> curr(n+2, -1);
+        if(m==0&&n==0){
+            return grid[m][n];
+        }
+        next[n] = grid[m][n];
+        for(int i = n-1; i >= 0; i--){
+            next[i] = next[i+1]+grid[m][i];
+        }
+        curr = next;
+        for(int i = m-1; i >= 0; i--){
+            for(int j = n; j >= 0; j--){
+                int temp = -1;
+                int fwd = next[j];
+                if(fwd!=-1){
+                    temp = grid[i][j] + fwd;
+                }
+                int down = curr[j+1];
+                if(down!=-1){
+                    if(temp!=-1){
+                        temp = min(temp, grid[i][j]+down);
+                    }
+                    else{
+                        temp = grid[i][j]+down;
+                    }
+                }
+                curr[j] = temp;
+            }
+            next = curr;
+        }
+        return curr[0];
+    }
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        return auxMinPathSum(m-1, n-1, grid);
+    }
 };
 
 int main(){
