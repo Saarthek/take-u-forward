@@ -16,7 +16,7 @@ public:
         return nums[n-k];
     }
 //Time Complexity -> O(n*log n)
-//Space Complexity -> O(1);
+//Space Complexity -> O(1)
 };
 
 int main(){
