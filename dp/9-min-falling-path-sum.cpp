@@ -117,6 +117,7 @@ public:
 //Time Complexity -> O(m*n)
 //Space Complexity -> O(m*n) (DP Array)
 */
+//Space Optimization
 private:
     int auxMinPathSum(int m, int n, vector<vector<int>>& grid){
         vector<int> next(n+2, -1);
@@ -157,6 +158,8 @@ public:
         int n = grid[0].size();
         return auxMinPathSum(m-1, n-1, grid);
     }
+//Time Complexity -> O(m*n)
+//Space complexity -> O(n)
 };
 
 int main(){
