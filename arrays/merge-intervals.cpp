@@ -45,7 +45,7 @@ int main(){
     }
     Solution sol;
     vector<vector<int>> ans = sol.merge(intervals);
-    for(auto interval : intervals){
+    for(auto interval : ans){
         cout << interval[0] << " " << interval[1] << '\n';
     }
     return 0;
