@@ -32,7 +32,7 @@ public:
         ans.push_back({st, end});
         return ans;
     }
-//Time Complexity -> O(n * log n) for merging O(n) for sorting
+//Time Complexity -> O(n * log n) for sorting O(n) for merging
 //Space Complexity -> O(n) to store output array, O(1) auxiliary space
 };
 
