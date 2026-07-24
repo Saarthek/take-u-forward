@@ -3,6 +3,7 @@
 using namespace std;
 
 class Solution {
+//Memoization
   private:
     int recSubsetSum(vector<int>& arr, vector<vector<int>> & dp, int sum, int st, int end){
         if(dp[sum][st]!=-1){
@@ -27,6 +28,8 @@ class Solution {
         vector<vector<int>> dp(sum+1, vector<int>(n+1, -1));
         return recSubsetSum(arr, dp, sum, 0, n-1);
     }
+//Time Complexity -> O(n)
+//Space Complexit -> O(n)  (Recursion stack + DP array)
 };
 
 int main(){
