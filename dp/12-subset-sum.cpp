@@ -1,3 +1,8 @@
+/*
+This code is a solution for the problem named Subset Sum in geeks-for-geeks
+https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1
+I have directly approached from the memoization, tabulation approach and Space optimized approach without the recursion 
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
