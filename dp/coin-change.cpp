@@ -40,6 +40,7 @@ public:
 //Time Complexity -> Exponential
 //Space Complexity -> Linear (Stack space)
 */
+/*
 //Memoization
 private:
     int recCoinChange(vector<int>& coins, vector<vector<int>> &dp, int amount, int ind){
@@ -82,7 +83,52 @@ public:
     }
 //Time Complexity -> O(amount * n)
 //Space Complexity -> O(amount * n) (Stack Space + DP array)
-
+*/
+//Tabulation
+private:
+    int auxCoinChange(vector<int>& coins, vector<vector<int>> &dp, int amount, int ind){
+        int n = coins.size();
+        for(int i = 0; i <= ind; i++){
+            dp[0][i] = 0;
+        }
+        for(int amt = 0; amt <= amount; amt++){
+            dp[amt][0] = (amt%coins[0])?-1:(amt/coins[0]);
+        }
+        for(int i = 1; i <= ind; i++){
+            for(int amt = 1; amt <= amount; amt++){
+                int pick = -1;
+                if(amt>=coins[i]){
+                    int val = dp[amt-coins[i]][i];
+                    if(val!=-1){
+                        pick = 1+val;
+                    }
+                }
+                int notPick = dp[amt][i-1];
+                int ans = -1;
+                if(pick==-1){
+                    ans = notPick;
+                }
+                else if(notPick == -1){
+                    ans = pick;
+                }
+                else{
+                    ans = min(pick, notPick);
+                }
+                dp[amt][i] = ans;
+            }
+        }
+        return dp[amount][ind];
+    }
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        int ans = 0;
+        int n = coins.size();
+        vector<vector<int>> dp(amount+1, vector<int> (n, -1));
+        sort(coins.begin(), coins.end());
+        return auxCoinChange(coins, dp, amount, n-1);
+    }
+//Time Complexity -> O(amount * n)
+//Space Complexity -> O(amount * n) (Stack Space + DP array)
 };
 
 int main(){
