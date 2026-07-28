@@ -2,6 +2,11 @@
 This code is a solution of the problem Frog Jump from Geeks for Geeks at the link
 https://www.geeksforgeeks.org/problems/geek-jump/1
 The solution progresses from brute force to optimal
+Input:
+    n -> Size of heights array
+    heights[0] heights[1] ... heights[n-1] -> heights array
+Output:
+    Minimum cost to jump from start to end, with cost of jump from i to j being |height[i] - height[j]|
 */
 
 #include <bits/stdc++.h>
