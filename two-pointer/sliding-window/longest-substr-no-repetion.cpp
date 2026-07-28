@@ -1,6 +1,10 @@
 /*
 This code is a solution for the Longest Substring Without Repeating Characters from LeetCode at
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+Input:
+    s -> String
+Output:
+    Length of largest substring with no repetition
 */
 #include <bits/stdc++.h>
 
