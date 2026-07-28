@@ -7,7 +7,7 @@ Input:
     m -> Number of columns
     grid[i][j] -> cost of reaching ith row, jth col
 Output:
-    Number of ways to reach last row and column from first, moving to the bottom or to the left
+    Minimum cost to reach last row and column from first, moving to the bottom or to the left
 */
 
 #include <bits/stdc++.h>
