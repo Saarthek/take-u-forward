@@ -2,6 +2,12 @@
 This code is a solution of the problem Frog Jump with K distance from atCoder at the link
 https://atcoder.jp/contests/dp/tasks/dp_b
 The solution progresses from brute force to optimal
+Input:
+    n -> Size of heights array
+    k -> Maximum jump distance
+    heights[0] heights[1] ... heights[n-1] -> heights array
+Output:
+    Minimum cost to jump from start to end, with cost of jump from i to j being |height[i] - height[j]|
 */
 
 #include <bits/stdc++.h>
