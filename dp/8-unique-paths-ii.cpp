@@ -7,7 +7,8 @@ Input:
     m -> Number of columns
     obs[i][j] -> 1 if i,j is an obstacle, 0 otherwise
 Output:
-    Number of ways to reach last row and column from first, moving to the bottom or to the left
+    Number of ways to reach last row and column from first, moving to the bottom or to the left % 2e+9
+PS: Add define directive
 */
 
 #include <bits/stdc++.h>
