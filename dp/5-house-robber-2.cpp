@@ -2,6 +2,11 @@
 This code is a solution of the problem House Robber 2 from Leetcode at the link
 https://leetcode.com/problems/house-robber-ii
 The solution progresses from brute force to optimal
+Input:
+    n -> Size of price array
+    arr[0] arr[1] ... arr[n-1] -> price array
+Output:
+    Maximum reward when 2 adjacent houses can't be robbed, and the first and last houses are adjacent
 */
 #include <bits/stdc++.h>
 
