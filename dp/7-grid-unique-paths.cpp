@@ -2,6 +2,11 @@
 This code is a solution of the problem Unique Path in grid from Leetcode at the link
 https://leetcode.com/problems/unique-paths/description/
 The solution progresses from brute force to optimal
+Input:
+    n -> Number of rows
+    m -> Number of columns
+Output:
+    Number of ways to reach last row and column from first, moving to the bottom or to the left
 */
 
 #include <bits/stdc++.h>
