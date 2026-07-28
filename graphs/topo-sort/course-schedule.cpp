@@ -1,3 +1,13 @@
+/*
+This code is a solution for the course schedule from LeetCode at
+https://leetcode.com/problems/course-schedule/description/
+Input:
+    n --> Number of nodes
+    e -> Number of edges
+    edges -> array of arrays with edges
+Output:
+    true/false
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
