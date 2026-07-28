@@ -2,6 +2,10 @@
 This code is a solution of the problem Climb Stairs from leetcode at the link
 https://leetcode.com/problems/climbing-stairs/
 The solution progresses from brute force to optimal
+Input:
+    n -> The number of stairs
+Output:
+    Number of ways to climb, if you can climb next or one after next from current step
 */
 #include <bits/stdc++.h>
 
