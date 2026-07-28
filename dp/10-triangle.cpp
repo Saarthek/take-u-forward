@@ -2,6 +2,11 @@
 This code is a solution for the triangle problem from leetcode at the link
 https://leetcode.com/problems/triangle/description/
 I have directly approached from the tabulation approach and the space optimized approach without the recursion and memoization
+Input:
+    n -> Number of rows
+    triangle[i][j] -> cost of reaching ith row, jth col
+Output:
+    Minimum cost to reach last row from first, moving to the bottom or to the bottom left or bottom right
 */
 
 #include <bits/stdc++.h>
