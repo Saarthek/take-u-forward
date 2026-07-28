@@ -7,7 +7,7 @@ Input:
     m -> Number of columns
     grid[i][j] -> number of chocolates at ith row, jth col
 Output:
-    Maximum amount gained by 2 players starting from 0,0 and n-1, 0
+    Maximum amount gained by 2 players starting from 0,0 and 0, m-1
 */
 
 #include <bits/stdc++.h>
