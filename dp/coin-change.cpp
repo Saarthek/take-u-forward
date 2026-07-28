@@ -2,6 +2,12 @@
 This code is a solution for the problem named Coin Change in Leetcode
 https://leetcode.com/problems/coin-change/description/
 The code progresses from recursion to space optimization
+Input:
+    n -> Array size
+    amt -> amount
+    coins[i] -> Coins array
+Output:
+    Minimum number of coins
 */
 
 #include <bits/stdc++.h>
