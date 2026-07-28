@@ -1,6 +1,12 @@
 /*
 This code is a solution for the problem kth smallest element in the array from leetcode at the link
 https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+Input:
+    n -> size of array
+    k -> k in kth largest integer
+    arr -> array
+Output:
+    kth largest element
 */
 
 #include <bits/stdc++.h>
