@@ -2,6 +2,11 @@
 This code is a solution of the problem Geek's training from Geeks for Geeks at the link
 https://www.geeksforgeeks.org/problems/geeks-training/1
 The solution progresses from brute force to optimal
+Input:
+    n -> Number of days
+    arr -> 2D array with a row denoting a day and a column denoting an activity
+Output:
+    Maximum utility with 2 adjacent days having a different activity
 P.S. Add the define statement to the top of your submission
 */
 
