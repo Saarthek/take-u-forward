@@ -2,6 +2,12 @@
 This code is a solution for the problem named ninja and his friends in take-u-forward but chocolate pickup in geeks-for-geeks
 https://www.geeksforgeeks.org/problems/chocolates-pickup/1
 I have directly approached from the tabulation approach and Space optimized approach without the recursion and memoization
+Input:
+    n -> Number of rows
+    m -> Number of columns
+    grid[i][j] -> number of chocolates at ith row, jth col
+Output:
+    Maximum amount gained by 2 players starting from 0,0 and n-1, 0
 */
 
 #include <bits/stdc++.h>
