@@ -30,6 +30,8 @@ The code progresses from recursion with memoization.
 using namespace std;
 
 class Solution {
+/*
+//Memoization
 private:
     int recPredict(vector<int>& nums, vector<vector<int>>& dp, int st, int end){
         if(dp[st][end]!=-1){
@@ -55,6 +57,50 @@ public:
         int res = recPredict(nums, dp, 0, n-1);
         return (res>=0);
     }
+//Time Complexity: O(n^2)
+//Space Complexity: O(n^2) (Recursion Stack + DP Array)
+*/
+/*
+//Tabulation
+public:
+    bool predictTheWinner(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> dp(n+1 ,vector<int> (n+1, 0));
+        for(int i = n-1; i >= 0; i--){
+            for(int j = i; j < n; j++){
+                if(i==j){
+                    dp[i][i] = nums[i];
+                    continue;
+                }
+                int lft = nums[i] - dp[i+1][j];
+                int rt = nums[j] - dp[i][j-1];
+                dp[i][j] = max(lft, rt);
+            }
+        }
+        int res = dp[0][n-1];
+        return (res>=0);
+    }
+//Time Complexity: O(n^2)
+//Space Complexity: O(n^2) (DP Array)
+*/
+//Space Optimization
+public:
+    bool predictTheWinner(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> curr(n+1, 0);
+        vector<int> next(n+1, 0);
+        for(int i = n-1; i >= 0; i--){
+            curr[i] = nums[i];
+            for(int j = i+1; j < n; j++){
+                curr[j] = max(nums[i]-next[j], nums[j]-curr[j-1]);
+            }
+            next = curr;
+        }
+        int res = curr[n-1];
+        return (res>=0);
+    }
+//Time Complexity: O(n^2)
+//Space Complexity: O(n)
 };
 
 int main() {
@@ -69,8 +115,3 @@ int main() {
     cout << boolalpha << ans << endl;
     return 0;
 }
-
-/*
-Time Complexity: O(n^2)
-Space Complexity: O(n^2)
-*/
