@@ -11,6 +11,10 @@ Output Format:
 - Return true if Player 1 can win or tie assuming both players play optimally.
 - Otherwise, return false.
 
+LOGIC
+    Use currentPlayerScore - OpponentScore as amount used in DP
+    dp[i][j] = max(nums[i]-dp[i+1][j], nums[j]-dp[i][j-1])
+
 Example:
 Input:
 nums = [1, 5, 2]
