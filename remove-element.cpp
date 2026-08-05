@@ -3,8 +3,9 @@ Problem: Remove Element (LeetCode 27)
 Link: https://leetcode.com/problems/remove-element/
 
 Input:
-- nums: A vector of integers.
+- n: size of nums
 - val: Integer value to be removed.
+- nums: A vector of integers.
 
 Output:
 - Returns the number of elements not equal to val after removing all occurrences of val in-place.
@@ -73,8 +74,12 @@ public:
 
 int main() {
     Solution sol;
-    vector<int> nums = {0, 1, 2, 2, 3, 0, 4, 2};
-    int val = 2;
+    int n, val;
+    cin >> n >> val;
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++){
+        cin >> nums[i];
+    }
     int k = sol.removeElement(nums, val);
     cout << "Length after removal: " << k << "\n";
     cout << "Modified array: ";
