@@ -9,6 +9,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
+/*
+//Recursion
+private:
+    void recSubsets(vector<int>& nums, int ind, vector<vector<int>> &ans, vector<int>& curr, const int n){
+        if(ind==n){
+            ans.push_back(curr);
+            return;
+        }
+        //pick
+        curr.push_back(nums[ind]);
+        recSubsets(nums, ind+1, ans, curr, n);
+        curr.pop_back();
+        //notPick
+        recSubsets(nums, ind+1, ans, curr, n);
+    }
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> ans;
+        vector<int> curr;
+        recSubsets(nums, 0, ans, curr, n);
+        return ans;
+    }
+    // Time Complexity: O(n * 2^n)
+    // Space Complexity: O(n * 2^n)
+*/
+//Bit manipulation
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
         int n = nums.size();
@@ -25,8 +52,8 @@ public:
         }
         return ans;
     }
-    // Time Complexity: O(n * 2^n)
-    // Space Complexity: O(n * 2^n)
+// Time Complexity: O(n * 2^n)
+// Space Complexity: O(n * 2^n)
 };
 int main() {
     int n;
