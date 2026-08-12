@@ -18,8 +18,6 @@ from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         n = len(nums)
-        st = 0
-        end = n - 1
         tmp = {}
 
         for i in range(n):
