@@ -38,6 +38,7 @@ public:
     // Time Complexity -> O(n^3)
     // Space Complexity -> O(1)
 */
+/*
 //Needlessly complicated DP Tabulation
 private:
     bool isPalin(string &s, int st, int end){
@@ -74,6 +75,31 @@ public:
         return dp[0][n-1];
     }
     // Time Complexity -> O(n^3)
+    // Space Complexity -> O(n^2)
+    */
+public:
+    int countSubstrings(string s) {
+        int n = s.size();
+        int ans = n;
+        vector<vector<bool>> dp(n, vector<bool>(n, false));
+        for(int i = 0; i < n; i++){
+            dp[i][i] = true;
+        }
+        for(int diag = 1; diag < n; diag++){
+            int endrow = n-diag-1;
+            for(int i = 0; i <= endrow; i++){
+                if(diag==1){
+                    dp[i][diag+i]= s[i]==s[diag+i];
+                }
+                else{
+                    dp[i][diag+i] = dp[i+1][diag+i-1] && (s[i]==s[diag+i]); 
+                }
+                ans += dp[i][diag+i];
+            }
+        }
+        return ans;
+    }
+    //// Time Complexity -> O(n^2)
     // Space Complexity -> O(n^2)
 };
 
