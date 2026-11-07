@@ -38,6 +38,7 @@ Striver's A2Z DSA Sheet — The core curriculum being followed.
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0001-two-sum](https://github.com/Saarthek/take-u-forward/tree/main/0001-two-sum/) | Easy |
 | [0200-number-of-islands](https://github.com/Saarthek/take-u-forward/tree/main/0200-number-of-islands/) | Medium |
 ## Depth-First Search
 | Problem Name | Difficulty |
@@ -55,4 +56,8 @@ Striver's A2Z DSA Sheet — The core curriculum being followed.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0200-number-of-islands](https://github.com/Saarthek/take-u-forward/tree/main/0200-number-of-islands/) | Medium |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0001-two-sum](https://github.com/Saarthek/take-u-forward/tree/main/0001-two-sum/) | Easy |
 <!---LeetCode Topics End-->
