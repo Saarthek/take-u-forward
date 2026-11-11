@@ -6,11 +6,11 @@ public:
         unordered_map<int, int> mpp;
         for(int i = 0; i < n; i++){
             int rem = target - nums[i];
-            if(mpp[rem]!=0){
-                ans = {mpp[rem]-1, i};
+            if(mpp.find(rem)!=mpp.end()){
+                ans = {i, mpp[rem]};
                 return ans;
             }
-            mpp[nums[i]] = (i+1);
+            mpp[nums[i]] = i;
         }
         return ans;
     }
