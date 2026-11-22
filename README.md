@@ -64,6 +64,7 @@ Striver's A2Z DSA Sheet — The core curriculum being followed.
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0020-valid-parentheses](https://github.com/Saarthek/take-u-forward/tree/main/0020-valid-parentheses/) | Easy |
+| [2124-check-if-all-as-appears-before-all-bs](https://github.com/Saarthek/take-u-forward/tree/main/2124-check-if-all-as-appears-before-all-bs/) | Easy |
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
